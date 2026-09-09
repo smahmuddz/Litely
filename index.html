@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Litely  -  Fast, private tools for images, PDFs, QR codes &amp; passwords</title>
+    <meta name="description" content="Litely is a privacy-first collection of everyday browser utilities: image compression, PDF merging, QR codes, password generation and color palettes. Everything runs locally in your browser." />
+    <meta name="keywords" content="image compressor, pdf merger, pdf splitter, qr code generator, password generator, color palette extractor, online tools, private tools, browser tools" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Litely" />
+    <meta property="og:title" content="Litely  -  Fast, private tools that run in your browser" />
+    <meta property="og:description" content="Compress images, merge PDFs, generate QR codes and passwords  -  all locally, all private. No uploads, no accounts." />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+    <script>
+      (function () {
+        try {
+          var s = JSON.parse(localStorage.getItem('litely:settings') || '{}');
+          var t = s.theme || 'system';
+          var dark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Litely needs JavaScript enabled to process files locally in your browser.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
