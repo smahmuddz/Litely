@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { AppProvider, useApp } from './lib/app';
 import { usePageMeta } from './lib/head';
 import { TOOL_BY_SLUG, TOOLS } from './lib/registry';
@@ -120,6 +121,7 @@ export default function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
+        <Analytics />
       </BrowserRouter>
     </AppProvider>
   );
